@@ -28,7 +28,7 @@ jobs:
           file: ./docker/Dockerfile
           push: false
           load: true
-          tags: codiumai/pr-agent:test
+          tags: khulnasoft/pr-assistant:test
           cache-from: type=gha,scope=dev
           cache-to: type=gha,mode=max,scope=dev
           target: test
@@ -36,6 +36,5 @@ jobs:
       - id: test
         name: Test dev docker
         run: |
-          docker run --rm codiumai/pr-agent:test pytest -v
-        
-          
+          docker run --rm khulnasoft/pr-assistant:test pytest -v
+

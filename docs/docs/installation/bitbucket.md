@@ -1,7 +1,7 @@
 ## Run as a Bitbucket Pipeline
 
 
-You can use the Bitbucket Pipeline system to run PR-Agent on every pull request open or update.
+You can use the Bitbucket Pipeline system to run PR-Assistant on every pull request open or update.
 
 1. Add the following file in your repository bitbucket_pipelines.yml
 
@@ -10,12 +10,12 @@ pipelines:
     pull-requests:
       '**':
         - step:
-            name: PR Agent Review
+            name: PR Assistant Review
             image: python:3.10
             services:
               - docker
             script:
-              - docker run -e CONFIG.GIT_PROVIDER=bitbucket -e OPENAI.KEY=$OPENAI_API_KEY -e BITBUCKET.BEARER_TOKEN=$BITBUCKET_BEARER_TOKEN codiumai/pr-agent:latest --pr_url=https://bitbucket.org/$BITBUCKET_WORKSPACE/$BITBUCKET_REPO_SLUG/pull-requests/$BITBUCKET_PR_ID review
+              - docker run -e CONFIG.GIT_PROVIDER=bitbucket -e OPENAI.KEY=$OPENAI_API_KEY -e BITBUCKET.BEARER_TOKEN=$BITBUCKET_BEARER_TOKEN khulnasoft/pr-assistant:latest --pr_url=https://bitbucket.org/$BITBUCKET_WORKSPACE/$BITBUCKET_REPO_SLUG/pull-requests/$BITBUCKET_PR_ID review
 ```
 
 2. Add the following secure variables to your repository under Repository settings > Pipelines > Repository variables.
@@ -27,9 +27,9 @@ You can get a Bitbucket token for your repository by following Repository Settin
 Note that comments on a PR are not supported in Bitbucket Pipeline.
 
 
-## Run using CodiumAI-hosted Bitbucket app
+## Run using KhulnaSoft-hosted Bitbucket app
 
-Please contact [support@codium.ai](mailto:support@codium.ai) or visit [CodiumAI pricing page](https://www.codium.ai/pricing/) if you're interested in a hosted BitBucket app solution that provides full functionality including PR reviews and comment handling. It's based on the [bitbucket_app.py](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/git_providers/bitbucket_provider.py) implementation.
+Please contact [support@khulnasoft.com](mailto:support@khulnasoft.com) or visit [KhulnaSoft pricing page](https://www.khulnasoft.com/pricing/) if you're interested in a hosted BitBucket app solution that provides full functionality including PR reviews and comment handling. It's based on the [bitbucket_app.py](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/git_providers/bitbucket_provider.py) implementation.
 
 
 ## Bitbucket Server and Data Center
@@ -58,10 +58,10 @@ python cli.py --pr_url https://git.onpreminstanceofbitbucket.com/projects/PROJEC
 
 ### Run it as service
 
-To run pr-agent as webhook, build the docker image:
+To run pr-assistant as webhook, build the docker image:
 ```
-docker build . -t codiumai/pr-agent:bitbucket_server_webhook --target bitbucket_server_webhook -f docker/Dockerfile
-docker push codiumai/pr-agent:bitbucket_server_webhook  # Push to your Docker repository
+docker build . -t khulnasoft/pr-assistant:bitbucket_server_webhook --target bitbucket_server_webhook -f docker/Dockerfile
+docker push khulnasoft/pr-assistant:bitbucket_server_webhook  # Push to your Docker repository
 ```
 
 Navigate to `Projects` or `Repositories`, `Settings`, `Webhooks`, `Create Webhook`.

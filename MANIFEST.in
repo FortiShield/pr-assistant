@@ -1,2 +1,2 @@
-recursive-include pr_agent *.toml
-recursive-exclude pr_agent *.secrets.toml
+recursive-include pr_assistant *.toml
+recursive-exclude pr_assistant *.secrets.toml

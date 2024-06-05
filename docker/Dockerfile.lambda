@@ -7,6 +7,6 @@ RUN yum update -y && \
 ADD pyproject.toml requirements.txt .
 RUN pip install . && rm pyproject.toml
 RUN pip install mangum==0.17.0
-COPY pr_agent/ ${LAMBDA_TASK_ROOT}/pr_agent/
+COPY pr_assistant/ ${LAMBDA_TASK_ROOT}/pr_assistant/
 
-CMD ["pr_agent.servers.serverless.serverless"]
+CMD ["pr_assistant.servers.serverless.serverless"]

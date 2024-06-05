@@ -1,6 +1,6 @@
-site_name: PR-Agent Documentation 
-repo_url: https://github.com/Codium-ai/pr-agent
-repo_name: Codium-ai/pr-agent
+site_name: PR-Assistant Documentation 
+repo_url: https://github.com/khulnasoft/pr-assistant
+repo_name: khulnasoft/pr-assistant
 
 nav: 
   - Overview: 'index.md'
@@ -11,7 +11,7 @@ nav:
     - GitLab: 'installation/gitlab.md'
     - BitBucket: 'installation/bitbucket.md'
     - Azure DevOps: 'installation/azure.md'
-    - 💎 PR-Agent Pro: 'installation/pr_agent_pro.md'
+    - 💎 PR-Assistant Pro: 'installation/pr_assistant_pro.md'
   - Usage Guide: 
     - 'usage-guide/index.md'
     - Introduction: 'usage-guide/introduction.md'
@@ -91,17 +91,17 @@ extra:
   generator: false
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Codium-ai
+      link: https://github.com/KhulnaSoft
     - icon: fontawesome/brands/discord
       link: https://discord.com/invite/SgSxuQ65GF
     - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/@Codium-AI
+      link: https://www.youtube.com/@KhulnaSoft
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/codiumai
+      link: https://www.linkedin.com/company/khulnasoft
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/CodiumAI
+      link: https://twitter.com/KhulnaSoft
     - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/codiumai/
+      link: https://www.instagram.com/khulnasoft/
   analytics:
     provider: custom
     property: ${{ secrets.GOOGLE_ANALYTICS_ID }}
@@ -132,4 +132,4 @@ markdown_extensions:
       permalink: true
   
 copyright: |
-  &copy; 2024 <a href="https://www.codium.ai/"  target="_blank" rel="noopener">CodiumAI</a>
+  &copy; 2024 <a href="https://www.khulnasoft.com/"  target="_blank" rel="noopener">KhulnaSoft</a>

@@ -1,1 +1,1 @@
-# [Visit Our Docs Portal](https://pr-agent-docs.codium.ai/)
+# [Visit Our Docs Portal](https://khulnasoft.github.io/pr-assistant/)

@@ -11,7 +11,7 @@ The tool can be triggered automatically every time a new PR is [opened](../usage
 
 Invoke the tool manually by commenting `/improve` on any PR. The code suggestions by default are presented as a single comment:
 
-![code suggestions as comment](https://codium.ai/images/pr_agent/code_suggestions_as_comment.png){width=512}
+![code suggestions as comment](https://khulnasoft.com/images/pr_assistant/code_suggestions_as_comment.png){width=512}
 
 To edit [configurations](#configuration-options) related to the improve tool, use the following template:
 ```
@@ -23,7 +23,7 @@ For example, you can choose to present the suggestions as commitable code commen
 /improve --pr_code_suggestions.commitable_code_suggestions=true
 ```
 
-![improve](https://codium.ai/images/pr_agent/improve.png){width=512}
+![improve](https://khulnasoft.com/images/pr_assistant/improve.png){width=512}
 
 
 Note that a single comment has a significantly smaller PR footprint. We recommend this mode for most cases.
@@ -31,7 +31,7 @@ Also note that collapsible are not supported in _Bitbucket_. Hence, the suggesti
 
 ### Automatic triggering
 
-To run the `improve` automatically when a PR is opened, define in a [configuration file](https://pr-agent-docs.codium.ai/usage-guide/configuration_options/#wiki-configuration-file):
+To run the `improve` automatically when a PR is opened, define in a [configuration file](https://khulnasoft.github.io/pr-assistant/usage-guide/configuration_options/#wiki-configuration-file):
 ```
 [github_app]
 pr_commands = [
@@ -148,15 +148,15 @@ Hence, the total number of suggestions is proportional to the number of chunks, 
 
 !!! tip "Review vs. Improve tools comparison"
 
-    - The [review](https://pr-agent-docs.codium.ai/tools/review/) tool includes a section called 'Possible issues', that also provide feedback on the PR Code.
-    In this section, the model is instructed to focus **only** on [major bugs and issues](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/settings/pr_reviewer_prompts.toml#L71).
-    - The `improve` tool, on the other hand, has a broader mandate, and in addition to bugs and issues, it can also give suggestions for improving code quality and making the code more efficient, readable, and maintainable (see [here](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/settings/pr_code_suggestions_prompts.toml#L34)).
+    - The [review](https://khulnasoft.github.io/pr-assistant/tools/review/) tool includes a section called 'Possible issues', that also provide feedback on the PR Code.
+    In this section, the model is instructed to focus **only** on [major bugs and issues](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/settings/pr_reviewer_prompts.toml#L71).
+    - The `improve` tool, on the other hand, has a broader mandate, and in addition to bugs and issues, it can also give suggestions for improving code quality and making the code more efficient, readable, and maintainable (see [here](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/settings/pr_code_suggestions_prompts.toml#L34)).
     - Hence, if you are interested only in feedback about clear bugs, the `review` tool might suffice. If you want a more detailed feedback, including broader suggestions for improving the PR code, also enable the `improve` tool to run on each PR.
 
 ## A note on code suggestions quality
 
 - While the current AI for code is getting better and better (GPT-4), it's not flawless. Not all the suggestions will be perfect, and a user should not accept all of them automatically. Critical reading and judgment are required.
-- While mistakes of the AI are rare but can happen, a real benefit from the suggestions of the `improve` (and [`review`](https://pr-agent-docs.codium.ai/tools/review/)) tool is to catch, with high probability, **mistakes or bugs done by the PR author**, when they happen. So, it's a good practice to spend the needed ~30-60 seconds to review the suggestions, even if not all of them are always relevant.
+- While mistakes of the AI are rare but can happen, a real benefit from the suggestions of the `improve` (and [`review`](https://khulnasoft.github.io/pr-assistant/tools/review/)) tool is to catch, with high probability, **mistakes or bugs done by the PR author**, when they happen. So, it's a good practice to spend the needed ~30-60 seconds to review the suggestions, even if not all of them are always relevant.
 - The hierarchical structure of the suggestions is designed to help the user to _quickly_ understand them, and to decide which ones are relevant and which are not:
 
     - Only if the `Category` header is relevant, the user should move to the summarized suggestion description

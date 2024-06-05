@@ -1,8 +1,8 @@
 ## Ignoring files from analysis
 
-In some cases, you may want to exclude specific files or directories from the analysis performed by CodiumAI PR-Agent. This can be useful, for example, when you have files that are generated automatically or files that shouldn't be reviewed, like vendored code.
+In some cases, you may want to exclude specific files or directories from the analysis performed by KhulnaSoft PR-Assistant. This can be useful, for example, when you have files that are generated automatically or files that shouldn't be reviewed, like vendored code.
 
-To ignore files or directories, edit the **[ignore.toml](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/settings/ignore.toml)** configuration file. This setting also exposes the following environment variables:
+To ignore files or directories, edit the **[ignore.toml](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/settings/ignore.toml)** configuration file. This setting also exposes the following environment variables:
 
  - `IGNORE.GLOB`
  - `IGNORE.REGEX`
@@ -18,27 +18,27 @@ glob = ['*.py']
 
 ## Extra instructions
 
-All PR-Agent tools have a parameter called `extra_instructions`, that enables to add free-text extra instructions. Example usage:
+All PR-Assistant tools have a parameter called `extra_instructions`, that enables to add free-text extra instructions. Example usage:
 ```
 /update_changelog --pr_update_changelog.extra_instructions="Make sure to update also the version ..."
 ```
 
 ## Working with large PRs
 
-The default mode of CodiumAI is to have a single call per tool, using GPT-4, which has a token limit of 8000 tokens.
+The default mode of KhulnaSoft is to have a single call per tool, using GPT-4, which has a token limit of 8000 tokens.
 This mode provides a very good speed-quality-cost tradeoff, and can handle most PRs successfully.
 When the PR is above the token limit, it employs a [PR Compression strategy](../core-abilities/index.md).
 
 However, for very large PRs, or in case you want to emphasize quality over speed and cost, there are two possible solutions:
-1) [Use a model](https://codium-ai.github.io/Docs-PR-Agent/usage-guide/#changing-a-model) with larger context, like GPT-32K, or claude-100K. This solution will be applicable for all the tools.
-2) For the `/improve` tool, there is an ['extended' mode](https://codium-ai.github.io/Docs-PR-Agent/tools/#improve) (`/improve --extended`),
+1) [Use a model](https://khulnasoft.github.io/Docs-PR-Assistant/usage-guide/#changing-a-model) with larger context, like GPT-32K, or claude-100K. This solution will be applicable for all the tools.
+2) For the `/improve` tool, there is an ['extended' mode](https://khulnasoft.github.io/Docs-PR-Assistant/tools/#improve) (`/improve --extended`),
 which divides the PR to chunks, and processes each chunk separately. With this mode, regardless of the model, no compression will be done (but for large PRs, multiple model calls may occur)
 
 
 ## Changing a model
 
-See [here](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/algo/__init__.py) for the list of available models.
-To use a different model than the default (GPT-4), you need to edit [configuration file](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/settings/configuration.toml#L2).
+See [here](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/algo/__init__.py) for the list of available models.
+To use a different model than the default (GPT-4), you need to edit [configuration file](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/settings/configuration.toml#L2).
 For models and environments not from OPENAI, you might need to provide additional keys and other parameters. See below for instructions.
 
 ### Azure
@@ -123,7 +123,7 @@ key = ...
 (you can obtain a Llama2 key from [here](https://replicate.com/replicate/llama-2-70b-chat/api))
 
 
-Also, review the [AiHandler](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/algo/ai_handler.py) file for instructions on how to set keys for other models.
+Also, review the [AiHandler](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/algo/ai_handler.py) file for instructions on how to set keys for other models.
 
 ### Groq
 
@@ -213,23 +213,23 @@ By default, around any change in your PR, git patch provides three lines of cont
  code line that already existed in the file...
 ```
 
-For the `review`, `describe`, `ask` and `add_docs` tools, if the token budget allows, PR-Agent tries to increase the number of lines of context, via the parameter:
+For the `review`, `describe`, `ask` and `add_docs` tools, if the token budget allows, PR-Assistant tries to increase the number of lines of context, via the parameter:
 ```
 [config]
 patch_extra_lines=3
 ```
 
 Increasing this number provides more context to the model, but will also increase the token budget.
-If the PR is too large (see [PR Compression strategy](https://github.com/Codium-ai/pr-agent/blob/main/PR_COMPRESSION.md)), PR-Agent automatically sets this number to 0, using the original git patch.
+If the PR is too large (see [PR Compression strategy](https://github.com/khulnasoft/pr-assistant/blob/main/PR_COMPRESSION.md)), PR-Assistant automatically sets this number to 0, using the original git patch.
 
 
 ## Editing the prompts
 
-The prompts for the various PR-Agent tools are defined in the `pr_agent/settings` folder.
+The prompts for the various PR-Assistant tools are defined in the `pr_assistant/settings` folder.
 In practice, the prompts are loaded and stored as a standard setting object.
-Hence, editing them is similar to editing any other configuration value - just place the relevant key in `.pr_agent.toml`file, and override the default value.
+Hence, editing them is similar to editing any other configuration value - just place the relevant key in `.pr_assistant.toml`file, and override the default value.
 
-For example, if you want to edit the prompts of the [describe](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/settings/pr_description_prompts.toml) tool, you can add the following to your `.pr_agent.toml` file:
+For example, if you want to edit the prompts of the [describe](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/settings/pr_description_prompts.toml) tool, you can add the following to your `.pr_assistant.toml` file:
 ```
 [pr_description_prompt]
 system="""
@@ -239,4 +239,4 @@ user="""
 ...
 """
 ```
-Note that the new prompt will need to generate an output compatible with the relevant [post-process function](https://github.com/Codium-ai/pr-agent/blob/main/pr_agent/tools/pr_description.py#L137).
+Note that the new prompt will need to generate an output compatible with the relevant [post-process function](https://github.com/khulnasoft/pr-assistant/blob/main/pr_assistant/tools/pr_description.py#L137).

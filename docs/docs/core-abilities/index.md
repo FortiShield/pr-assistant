@@ -23,8 +23,8 @@ In this case, we can fit the entire PR in a single prompt:
 ### Large PR
 
 #### Motivation
-Pull Requests can be very long and contain a lot of information with varying degree of relevance to the pr-agent.
-We want to be able to pack as much information as possible in a single LMM prompt, while keeping the information relevant to the pr-agent.
+Pull Requests can be very long and contain a lot of information with varying degree of relevance to the pr-assistant.
+We want to be able to pack as much information as possible in a single LMM prompt, while keeping the information relevant to the pr-assistant.
 
 #### Compression strategy
 We prioritize additions over deletions:
@@ -43,7 +43,7 @@ We use [tiktoken](https://github.com/openai/tiktoken) to tokenize the patches af
 
 #### Example
 
-![Core Abilities](https://codium.ai/images/git_patch_logic.png){width=768}
+![Core Abilities](https://khulnasoft.com/images/git_patch_logic.png){width=768}
 
 ## YAML Prompting
 TBD

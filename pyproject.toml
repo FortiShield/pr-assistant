@@ -3,18 +3,16 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pr-agent"
-version = "0.2.2"
+name = "pr-assistant"
+version = "0.1.0"
 
-authors = [{name= "CodiumAI", email = "tal.r@codium.ai"}]
+authors = [{name= "KhulnaSoft", email = "info@khulnasoft.com"}]
 
 maintainers = [
-  {name = "Tal Ridnik", email = "tal.r@codium.ai"},
-  {name = "Ori Kotek", email = "ori.k@codium.ai"},
-  {name = "Hussam Lawen", email = "hussam.l@codium.ai"},
+  {name = "KhulnaSoft DevOps", email = "info@khulnasoft.com"},
 ]
 
-description = "CodiumAI PR-Agent aims to help efficiently review and handle pull requests, by providing AI feedbacks and suggestions."
+description = "KhulnaSoft PR-Assistant aims to help efficiently review and handle pull requests, by providing AI feedbacks and suggestions."
 readme = "README.md"
 requires-python = ">=3.10"
 keywords = ["AI", "Agents", "Pull Request", "Automation", "Code Review"]
@@ -31,8 +29,8 @@ dynamic = ["dependencies"]
 dependencies = {file = ["requirements.txt"]}
 
 [project.urls]
-"Homepage" = "https://github.com/Codium-ai/pr-agent"
-"Documentation" = "https://pr-agent-docs.codium.ai/"
+"Homepage" = "https://github.com/khulnasoft/pr-assistant"
+"Documentation" = "https://khulnasoft.github.io/pr-assistant/"
 
 [tool.setuptools]
 include-package-data = true
@@ -40,10 +38,10 @@ license-files = ["LICENSE"]
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["pr_agent*"] # include pr_agent and any sub-packages it finds under it.
+include = ["pr_assistant*"] # include pr_assistant and any sub-packages it finds under it.
 
 [project.scripts]
-pr-agent = "pr_agent.cli:run"
+pr-assistant = "pr_assistant.cli:run"
 
 
 [tool.ruff]
