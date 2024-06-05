@@ -128,45 +128,6 @@ ___
 ‣ **Similar Code 💎 ([`/find_similar_component`](https://khulnasoft.github.io/pr-assistant/tools/similar_code/))**: Retrieves the most similar code components from inside the organization's codebase, or from open-source code.
 ___
 
-## Example results
-</div>
-<h4><a href="https://github.com/khulnasoft/pr-assistant/pull/530">/describe</a></h4>
-<div align="center">
-<p float="center">
-<img src="https://www.khulnasoft.com/images/pr_assistant/describe_new_short_main.png" width="512">
-</p>
-</div>
-<hr>
-
-<h4><a href="https://github.com/khulnasoft/pr-assistant/pull/732#issuecomment-1975099151">/review</a></h4>
-<div align="center">
-<p float="center">
-<kbd>
-<img src="https://www.khulnasoft.com/images/pr_assistant/review_new_short_main.png" width="512">
-</kbd>
-</p>
-</div>
-<hr>
-
-<h4><a href="https://github.com/khulnasoft/pr-assistant/pull/732#issuecomment-1975099159">/improve</a></h4>
-<div align="center">
-<p float="center">
-<kbd>
-<img src="https://www.khulnasoft.com/images/pr_assistant/improve_new_short_main.png" width="512">
-</kbd>
-</p>
-</div>
-<hr>
-
-<h4><a href="https://github.com/khulnasoft/pr-assistant/pull/530">/generate_labels</a></h4>
-<div align="center">
-<p float="center">
-<kbd><img src="https://www.khulnasoft.com/images/pr_assistant/geneare_custom_labels_main_short.png" width="300"></kbd>
-</p>
-</div>
-
-<hr>
-
 ## Try it now
 
 Try the GPT-4 powered PR-Assistant instantly on _your public GitHub repository_. Just mention `@KhulnaSoft-Agent` and add the desired command in any PR comment. The agent will generate a response based on your command.
