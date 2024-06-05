@@ -1,6 +1,7 @@
 # Installation
 
 ## Self-hosted PR-Assistant
+
 If you choose to host you own PR-Assistant, you first need to acquire two tokens:
 
 1. An OpenAI key from [here](https://platform.openai.com/api-keys), with access to GPT-4 (or a key for [other models](../usage-guide/additional_configurations.md/#changing-a-model), if you prefer).
@@ -15,8 +16,7 @@ There are several ways to use self-hosted PR-Assistant:
 - [Azure DevOps](./azure.md)
 
 ## PR-Assistant Pro 💎
-PR-Assistant Pro, an app for GitHub\GitLab\BitBucket hosted by KhulnaSoft, is also available. 
-<br>
+
+PR-Assistant Pro, an app for GitHub\GitLab\BitBucket hosted by KhulnaSoft, is also available.
 With PR-Assistant Pro Installation is as simple as signing up and adding the PR-Assistant app to your relevant repo.
-<br>
 See [here](./pr_assistant_pro.md) for more details.

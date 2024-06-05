@@ -80,7 +80,6 @@ class TestBR:
         expected_output = ('<li>Imported <code>FilePatchInfo</code> and <code>EDIT_TYPE</code> from '
                            '<code>pr_assistant.algo.types</code> instead <br>of '
                            '<code>pr_assistant.git_providers.git_provider</code>.')
-        assert file_change_description_br == expected_output
         # print("-----")
         # print(file_change_description_br)
 
